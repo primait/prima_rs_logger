@@ -39,7 +39,6 @@ impl<W: io::Write> Drain for JsonDrain<W> {
             level: record.level().as_str(),
             file: record.location().file,
             line: record.location().line,
-            environment: std::env::var("APP_ENV").expect("APP_ENV env var not defined"),
             additional: additional.0,
         };
 
@@ -110,7 +109,6 @@ mod tests {
 
         assert_eq!("json_logger_test_without_metadata", message.app);
         assert_eq!("Logger Test", message.message);
-        assert_eq!("dev", message.metadata.environment);
         assert_eq!(None, message.metadata.additional.get("build"));
     }
     // without metadata
@@ -128,7 +126,6 @@ mod tests {
 
         assert_eq!("json_logger_test_with_metadata", message.app);
         assert_eq!("Logger Test", message.message);
-        assert_eq!("dev", message.metadata.environment);
         assert_eq!(
             Some("unknown"),
             message

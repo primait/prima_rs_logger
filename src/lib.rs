@@ -1,8 +1,7 @@
-pub use logger::json_guard;
-pub use logger::slog_macro;
-pub use logger::term_guard;
-pub use logger::GuardLogger;
 pub use once_cell::sync::OnceCell;
+
+pub use logger::{json_guard, term_guard, GuardLogger, slog_macro};
+pub use logger::macros::*;
 
 pub type GuardLoggerCell = OnceCell<GuardLogger>;
 

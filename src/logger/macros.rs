@@ -1,7 +1,7 @@
 /// # Example info! macro
 ///
 /// ```rust,no_run
-/// paperboy::logger::info!("Info {}", "param"; "meta" => "data" );
+/// prima_rs_logger::info!("Info {}", "param"; "meta" => "data" );
 /// ```
 
 #[macro_export(local_inner_macros)]
@@ -21,7 +21,7 @@ macro_rules! info {
 /// # Example warn! macro
 ///
 /// ```rust,no_run
-/// paperboy::logger::warn!("Warn {}", "param"; "meta" => "data" );
+/// prima_rs_logger::warn!("Warn {}", "param"; "meta" => "data" );
 /// ```
 
 // This macro is internally called `v_warn` since `pub use warn` is forbidden.
@@ -43,7 +43,7 @@ macro_rules! v_warn {
 /// # Example debug! macro
 ///
 /// ```rust,no_run
-/// paperboy::logger::debug!("Debug {}", "param"; "meta" => "data" );
+/// prima_rs_logger::debug!("Debug {}", "param"; "meta" => "data" );
 /// ```
 
 #[macro_export(local_inner_macros)]
@@ -63,7 +63,7 @@ macro_rules! debug {
 /// # Example trace! macro
 ///
 /// ```rust,no_run
-/// paperboy::logger::trace!("Trace {}", "param"; "meta" => "data" );
+/// prima_rs_logger::trace!("Trace {}", "param"; "meta" => "data" );
 /// ```
 
 #[macro_export(local_inner_macros)]
@@ -83,7 +83,7 @@ macro_rules! trace {
 /// # Example error! macro
 ///
 /// ```rust,no_run
-/// paperboy::logger::error!("Error {}", "param"; "meta" => "data" );
+/// prima_rs_logger::error!("Error {}", "param"; "meta" => "data" );
 /// ```
 
 #[macro_export(local_inner_macros)]

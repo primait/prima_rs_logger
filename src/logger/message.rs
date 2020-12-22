@@ -19,7 +19,6 @@ pub struct Fields<'a> {
     pub level: &'a str,
     pub file: &'a str,
     pub line: u32,
-    pub environment: String,
     #[serde(flatten)]
     pub additional: HashMap<String, String>,
 }

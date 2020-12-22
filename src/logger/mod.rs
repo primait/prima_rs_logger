@@ -1,11 +1,9 @@
 mod json;
 
 #[macro_use]
-mod macros;
+pub mod macros;
 mod message;
 mod terminal;
-
-pub use macros::*;
 
 use slog::{o, Drain, Logger as SLogger};
 use slog_scope::GlobalLoggerGuard;
