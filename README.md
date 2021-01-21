@@ -10,7 +10,7 @@ Just include `prima_rs_logger = "^0.1"` in your Cargo.toml
 
 ## Code example
 
-There are two different type of guard:
+There are two different type of guards:
 - term guard => log stuff as plain string
 - json guard => encode everything in json format
 
