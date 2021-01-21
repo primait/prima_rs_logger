@@ -17,6 +17,7 @@ There are two different type of guard:
 ```rust
 use prima_rs_logger::{info, GuardLoggerCell};
 
+// Singleton logger. Used to free user from manually passing Logger objects around.
 static LOGGER_GUARD: GuardLoggerCell = GuardLoggerCell::new();
 
 fn main() {
