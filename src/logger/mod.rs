@@ -1,13 +1,14 @@
+use std::sync::Arc;
+
+use slog::{o, Drain, Logger as SLogger};
+use slog_scope::GlobalLoggerGuard;
+
 mod json;
 
 #[macro_use]
 pub mod macros;
 mod message;
 mod terminal;
-
-use slog::{o, Drain, Logger as SLogger};
-use slog_scope::GlobalLoggerGuard;
-use std::sync::Arc;
 
 /// `GuardLogger` embed `GlobalLoggerGuard` of slog.
 ///

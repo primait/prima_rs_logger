@@ -1,7 +1,8 @@
+use std::collections::HashMap;
+
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use slog::Key;
-use std::collections::HashMap;
 
 #[derive(Serialize, Deserialize)]
 pub struct Message<'a> {

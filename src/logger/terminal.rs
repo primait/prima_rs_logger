@@ -1,7 +1,8 @@
-use slog::{Drain, OwnedKVList, Record, KV};
-use slog_term::{CountingWriter, Decorator, RecordDecorator, Serializer, ThreadSafeTimestampFn};
 use std::io::Write;
 use std::{io, result};
+
+use slog::{Drain, OwnedKVList, Record, KV};
+use slog_term::{CountingWriter, Decorator, RecordDecorator, Serializer, ThreadSafeTimestampFn};
 
 const TIMESTAMP_FORMAT: &str = "%FT%T%.3f";
 

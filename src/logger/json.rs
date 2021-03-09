@@ -1,8 +1,10 @@
-use super::message::{AdditionalFields, Fields, Message};
-use slog::{Drain, OwnedKVList, Record, KV};
-
 use std::cell::RefCell;
 use std::{collections::HashMap, io};
+
+use slog::{Drain, OwnedKVList, Record, KV};
+
+use super::message::{AdditionalFields, Fields, Message};
+
 pub struct JsonDrain<W: io::Write> {
     app: String,
     output: RefCell<W>,
@@ -28,7 +30,7 @@ impl<W: io::Write> Drain for JsonDrain<W> {
         record.kv().serialize(record, &mut additional)?;
         values.serialize(record, &mut additional)?;
 
-        let target = if record.tag().is_empty() {
+        let target: &str = if record.tag().is_empty() {
             record.location().module
         } else {
             record.tag()
@@ -41,15 +43,17 @@ impl<W: io::Write> Drain for JsonDrain<W> {
             additional: additional.0,
         };
 
+        let level: String = record.level().as_str().to_lowercase();
+
         let message = Message {
             timestamp: chrono::Utc::now(),
             app: self.app.as_str(),
-            level: record.level().to_lowercase().as_str(),
+            level: level.as_str(),
             message: record.msg().to_string(),
             metadata,
         };
 
-        let serialized = serde_json::to_string(&message)?;
+        let serialized: String = serde_json::to_string(&message)?;
 
         let mut output = self.output.borrow_mut();
 
@@ -60,11 +64,13 @@ impl<W: io::Write> Drain for JsonDrain<W> {
 
 #[cfg(test)]
 mod tests {
+    use std::sync::{Arc, Mutex};
+
+    use slog::{info, o, Drain};
+
+    use crate::logger::message::Message;
 
     use super::JsonDrain;
-    use crate::logger::message::Message;
-    use slog::{info, o, Drain};
-    use std::sync::{Arc, Mutex};
 
     struct MockWriter {
         entries: Arc<Mutex<Vec<Vec<u8>>>>,
