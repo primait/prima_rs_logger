@@ -1,6 +1,6 @@
 [package]
 name = "prima_rs_logger"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Simone Cottini <simone.cottini@prima.it>"]
 edition = "2018"
 license = "MIT"
