@@ -36,7 +36,6 @@ impl<W: io::Write> Drain for JsonDrain<W> {
 
         let metadata = Fields {
             target,
-            level: record.level().as_str(),
             file: record.location().file,
             line: record.location().line,
             additional: additional.0,
@@ -45,6 +44,7 @@ impl<W: io::Write> Drain for JsonDrain<W> {
         let message = Message {
             timestamp: chrono::Utc::now(),
             app: self.app.as_str(),
+            level: record.level().to_lowercase().as_str(),
             message: record.msg().to_string(),
             metadata,
         };

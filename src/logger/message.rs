@@ -9,6 +9,7 @@ pub struct Message<'a> {
     #[serde(rename = "type")]
     pub app: &'a str,
     pub message: String,
+    pub level: &'a str,
     #[serde(borrow)]
     pub metadata: Fields<'a>,
 }
@@ -16,7 +17,6 @@ pub struct Message<'a> {
 #[derive(Serialize, Deserialize)]
 pub struct Fields<'a> {
     pub target: &'a str,
-    pub level: &'a str,
     pub file: &'a str,
     pub line: u32,
     #[serde(flatten)]
