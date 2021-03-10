@@ -5,6 +5,8 @@ use slog::{Drain, OwnedKVList, Record, KV};
 
 use super::message::{AdditionalFields, Fields, Message};
 
+const MAX_LOG_LEN: usize = 15000;
+
 pub struct JsonDrain<W: io::Write> {
     app: String,
     output: RefCell<W>,
@@ -45,11 +47,17 @@ impl<W: io::Write> Drain for JsonDrain<W> {
 
         let level: String = record.level().as_str().to_lowercase();
 
+        let mut message: String = record.msg().to_string();
+        if message.len() > MAX_LOG_LEN {
+            message.truncate(MAX_LOG_LEN);
+            message.push_str("...\nTRUNCATED MESSAGE!")
+        }
+
         let message = Message {
             timestamp: chrono::Utc::now(),
             app: self.app.as_str(),
             level: level.as_str(),
-            message: record.msg().to_string(),
+            message,
             metadata,
         };
 
