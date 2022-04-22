@@ -1,4 +1,4 @@
-# PrimaRsLogger
+# prima_rs_logger
 
 [![Version](https://img.shields.io/crates/v/prima_rs_logger.svg)](https://crates.io/crates/prima_rs_logger)
 [![Downloads](https://img.shields.io/crates/d/prima_rs_logger.svg)](https://crates.io/crates/prima_rs_logger)
@@ -11,6 +11,7 @@ Just include `prima_rs_logger = "^0.1"` in your Cargo.toml
 ## Code example
 
 There are two different type of guards:
+
 - term guard => log stuff as plain string
 - json guard => encode everything in json format
 
