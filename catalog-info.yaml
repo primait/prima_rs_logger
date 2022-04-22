@@ -5,9 +5,6 @@ spec:
   lifecycle: production
   owner: team-shared-services
   system: prima.it
-  dependsOn:
-    - component:default/prima_ex_logger
-    - component:default/prima_opentelemetry_ex
 metadata:
   name: prima_rs_logger
   description: An opinionated Rust logger
