@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+spec:
+  type: library
+  lifecycle: production
+  owner: team-shared-services
+  system: prima.it
+metadata:
+  name: prima_rs_logger
+  description: An opinionated Rust logger
+  tags:
+    - rust
+  links:
+    - url: https://crates.io/crates/prima_rs_logger
+      icon: link
+      title: crates.io page
+    - url: https://docs.rs/prima_rs_logger
+      icon: link
+      title: Official documentation
