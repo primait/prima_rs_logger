@@ -2,7 +2,7 @@
 name = "prima_rs_logger"
 version = "0.1.1"
 authors = ["Simone Cottini <simone.cottini@prima.it>"]
-edition = "2018"
+edition = "2021"
 license = "MIT"
 description = "Prima logging standard library"
 repository = "https://github.com/primait/prima_rs_logger"
